@@ -1,0 +1,135 @@
+﻿@page
+@model WebApplication1.Pages.debuggerTestingRightModel
+@{
+}
+
+<style>
+
+    .detailsInput {
+        width: 30em;
+    }
+
+    legend {
+        background: #FFFACD;
+        border: solid 1px black;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        padding: 6px;
+    }
+
+</style>
+
+<script src="lib/payne-debugger/debugHelper.min.js"></script>
+
+<div class="container">
+    
+    <div class="alert alert-primary" role="alert">
+        <h1 class="fs-4">Code sample done right</h1>
+    </div>
+
+    <form id="theForm" method="post" class="mt-5">
+
+        <fieldset class="border border-dark-subtle rounded-3 p-3 mt-3 mb-3">
+
+            <legend class="float-none w-auto fs-6 px-1" id="description">
+                <span class="fw-bold">Information needed to order forms</span>
+            </legend>
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <label class="required oed-required" for="businessName">Business Name</label>
+                </div>
+                <div class="col-lg-6">
+                    <input id="businessName" asp-for="Person.BusinessName" class="form-control mb-2" required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <label class="required oed-required" for="accountNumber">Account Number</label>
+                </div>
+                <div class="col-lg-6">
+                    <input id="accountNumber" asp-for="Person.AccountNumber" class="form-control mb-2" required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <label class="required  oed-required" for="contactPerson">Contact Person</label>
+                </div>
+                <div class="col-lg-6">
+                    <input id="contactPerson" asp-for="Person.ContactPerson" class="form-control mb-2" required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <label class="required oed-required" for="address">Address</label>
+                </div>
+                <div class="col-lg-6">
+                    <input id="address" asp-for="Person.Address" class="form-control mb-2" required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <label class="required oed-required" for="city">City</label>
+                </div>
+                <div class="col-lg-6">
+                    <input id="city" asp-for="Person.City" class="form-control mb-2" required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <label class="required oed-required" for="stateId">State</label>
+                </div>
+                <div class="col-lg-6">
+                    
+                    <select name="StateIdentifier"
+                            id="stateId"
+                            class="form-select"
+                            style="width: 18.5em;"
+                            asp-for="Person.State"
+                            asp-items="@Model.StatesList">
+                    </select>
+                    
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                    <label class="required oed-required" for="zipcode">Zip code</label>
+                </div>
+                <div class="col-lg-3">
+                    <input id="zipcode" asp-for="Person.ZipCode" class="form-control mb-2" required/>
+                </div>
+            </div>
+
+        </fieldset>
+        
+        <div class="row">
+            <div class="text-center col">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded",
+        () => {
+            var requiredElements = document.getElementsByClassName('oed-required');
+
+            for (var index = 0; index < requiredElements.length; ++index) {
+                var item = requiredElements[index];  
+                item.innerHTML += "<span style='color:#B22222;font-weight:bold'>&nbsp;&nbsp;(Required)</span>";
+            }
+        });
+
+
+</script>
