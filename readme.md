@@ -9,6 +9,8 @@ There are two pages, the first done incorrectly for a responsive design, shrink 
 ## Uses a database....
 EF Core is used to obtain data for a list of states, the script is in the script folder to populate the database.
 
+---
+
 Code for creating borders is in site.js
 
 ```javascript
